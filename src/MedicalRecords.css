@@ -1,0 +1,199 @@
+/* MedicalRecords.css */
+.medical-records-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin: 20px;
+    min-height: calc(100vh - 120px);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .records-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 16px;
+  }
+  
+  .records-header h1 {
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .btn-add-record {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-add-record:hover {
+    background-color: #2980b9;
+  }
+  
+  .records-filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f2f5f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    width: 50%;
+  }
+  
+  .search-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .search-bar input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+    color: #2c3e50;
+  }
+  
+  .filter-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .filter-options span {
+    color: #7f8c8d;
+    font-size: 14px;
+  }
+  
+  .filter-options select {
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #2c3e50;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .records-content {
+    min-height: 300px;
+  }
+  
+  .records-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .records-table th,
+  .records-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .records-table th {
+    background-color: #f8f9fa;
+    color: #7f8c8d;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .records-table tbody tr:hover {
+    background-color: #f4f6f9;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .status-completed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+  
+  .status-active {
+    background-color: #e3f2fd;
+    color: #1565c0;
+  }
+  
+  .status-pending {
+    background-color: #fff8e1;
+    color: #ff8f00;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .btn-view,
+  .btn-download {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .action-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .btn-view:hover,
+  .btn-download:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .empty-state-image {
+    width: 150px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+  
+  .empty-text {
+    font-size: 18px;
+    color: #34495e;
+    margin-bottom: 10px;
+  }

@@ -1,0 +1,350 @@
+.DoctorContainer {
+  padding: 32px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.add-doctor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 12px;
+  border-bottom: 2px solid #000;
+  flex-wrap: wrap; /* Responsive wrap if needed */
+  gap: 10px; /* Space between items on wrap */
+}
+
+
+.header label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #22223b;
+}
+
+.add-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+  transition: background 0.2s;
+}
+.add-btn:hover {
+  background: #1746a2;
+}
+
+.content {
+  margin-top: 18px;
+}
+
+.doctor-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f9fbfd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.doctor-table th, .doctor-table td {
+  padding: 14px 10px;
+  text-align: left;
+}
+
+.doctor-table th {
+  background: #f1f5fb;
+  color: #2563eb;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.doctor-table td {
+  border-bottom: 1px solid #e5e7eb;
+  color: #22223b;
+  font-size: 1rem;
+}
+
+.doctor-table tr:last-child td {
+  border-bottom: none;
+}
+
+.event-btn {
+  background: #e0e7ff;
+  color: #2563eb;
+  border: none;
+  margin-right: 6px;
+  padding: 7px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.97rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.event-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Background overlay for popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;  /* Viewport width */
+  height: 100vh; /* Viewport height */
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;  /* Keep it hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+/* Popup window container */
+.popupwindow {
+  background: #fff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header with title and close button */
+.popupheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popupheader label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.popupheader span {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ff4d4f;
+}
+
+/* Content section styling */
+.popupcontent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popupcontent label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.popupcontent input,
+.popupcontent textarea {
+  padding: 10px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.popupcontent textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Save button */
+.popupcontent button {
+  margin-top: 15px;
+  background-color: #4e5ef2;
+  color: #fff;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.popupcontent button:hover {
+  background-color: #3d4bd1;
+}
+
+.popupfooter {
+  margin-top: 10px;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+@media (max-width: 700px) {
+  .DoctorContainer { padding: 10px; }
+  .popupwindow { padding: 18px 6vw 18px 6vw; }
+  .doctor-table th, .doctor-table td { padding: 8px 4px; }
+}
+
+.add-doctor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add-doctor-content {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.add-doctor-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.add-doctor-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.retry-button {
+  background: none;
+  border: none;
+  color: #c62828;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.retry-button:hover {
+  text-decoration: underline;
+}
+
+.form-note {
+  margin: 20px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #357abd;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .add-doctor-container {
+    padding: 10px;
+  }
+
+  .add-doctor-content {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,182 @@
+/* MyAppointments.css */
+
+.appointments-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .appointments-container h2 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin: 0 0 1.5rem 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Loading state */
+  .appointments-container > div:not(.error-message) {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+    background: linear-gradient(to right, #f1f5f9, #e2e8f0, #f1f5f9);
+    background-size: 200% 100%;
+    animation: loading-gradient 1.5s infinite;
+    border-radius: 8px;
+  }
+  
+  @keyframes loading-gradient {
+    0% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+  }
+  
+  /* Error message */
+  .error-message {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(231, 76, 60, 0.2);
+    font-weight: 500;
+    position: relative;
+    border-left: 5px solid #e74c3c;
+  }
+  
+  /* Appointment list styling */
+  .appointments-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .appointments-container li {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-left: 4px solid #3498db;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .appointments-container li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 6px;
+    background: linear-gradient(to bottom, #3498db, #2ecc71);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .appointments-container li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .appointments-container li:hover::before {
+    opacity: 1;
+  }
+  
+  .appointments-container li strong {
+    color: #3498db;
+    font-size: 1.25rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .appointments-container li {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Styling for appointment details */
+  .appointments-container li::after {
+    content: attr(data-department);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 0.8rem;
+    background-color: #edf2f7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    color: #2c3e50;
+    font-weight: 500;
+  }
+  
+  /* No appointments message */
+  .appointments-container li:only-child {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%);
+    color: #64748b;
+    font-style: italic;
+    border: 2px dashed #cbd5e1;
+    border-left: 2px dashed #cbd5e1;
+  }
+  
+  .appointments-container li:only-child::before,
+  .appointments-container li:only-child::after {
+    display: none;
+  }
+  
+  /* Department color coding (additional visual enhancement) */
+  .appointments-container li[data-department*="Cardiology"] {
+    border-left-color: #e74c3c;
+  }
+  
+  .appointments-container li[data-department*="General Medicine"] {
+    border-left-color: #2ecc71;
+  }
+  
+  .appointments-container li[data-department*="Orthopedic"] {
+    border-left-color: #f39c12;
+  }
+  
+  .appointments-container li[data-department*="Pediatric"] {
+    border-left-color: #9b59b6;
+  }
+  
+  .appointments-container li[data-department*="Neurology"] {
+    border-left-color: #1abc9c;
+  }
+  
+  /* Appointment date/time styling */
+  .appointment-datetime {
+    display: inline-block;
+    margin-top: 0.25rem;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .appointments-container {
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    
+    .appointments-container h2 {
+      font-size: 1.75rem;
+    }
+    
+    .appointments-container li {
+      padding: 1.25rem;
+    }
+  }

@@ -1,0 +1,188 @@
+.admin-dashboard-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    padding: 2rem;
+  }
+  
+  .admin-main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .welcome-title {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .admin-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .stat-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #3498db;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stat-label {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .appointments-btn, .records-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+  }
+  
+  .appointments-btn {
+    background: linear-gradient(135deg, hsl(157, 70%, 53%) 0%, #29b948 100%);
+    color: white;
+  }
+  
+  .records-btn {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    color: white;
+  }
+  
+  .appointments-btn:hover, .records-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Health Summary Styles */
+  .health-summary {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .summary-item:last-child {
+    border-bottom: none;
+  }
+  
+  .summary-label {
+    color: #7f8c8d;
+    font-weight: 500;
+  }
+  
+  .summary-value {
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  .summary-value.good {
+    color: #2ecc71;
+  }
+  
+  .summary-value.warning {
+    color: #f1c40f;
+  }
+  
+  .summary-value.critical {
+    color: #e74c3c;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-dashboard-bg {
+      padding: 1rem;
+    }
+  
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .button-group {
+      flex-direction: column;
+    }
+  
+    .appointments-btn, .records-btn {
+      width: 100%;
+    }
+  
+    .welcome-title {
+      font-size: 1.5rem;
+    }
+  
+    .card-title {
+      font-size: 1.25rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .stat-item {
+      padding: 0.75rem;
+    }
+  
+    .stat-icon {
+      font-size: 1.5rem;
+    }
+  
+    .stat-number {
+      font-size: 1.25rem;
+    }
+  }
