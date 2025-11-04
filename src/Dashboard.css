@@ -9,15 +9,17 @@
 }
 .dashboard .header{
   grid-column: 1/span 2;
-  border-bottom: 2px solid black;
-  
-  
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  background: var(--color-surface, #fff);
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.06));
 }
 .dashboard .menu{
-  border-right: 1px solid black;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  background: #f9fbfd;
 }
 .dashboard .outlet{
   background:  #f4f2f6;
+  padding: 12px;
 }
 .header .logo{
   width: 40px;
@@ -33,6 +35,7 @@
   font-size: 20pt;
   font-weight: bold;
   float: left;
+  color: var(--color-text, #1f2937);
 }
 .header .logotext span{
   color:rgb(13, 120,130);
@@ -44,6 +47,7 @@
   float:right;
   margin-right: 12px;
   cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
 }
 
 .header .fullnametext{
@@ -57,6 +61,7 @@
 
 }
 .header .logouticon:hover{
-  opacity: 0.65;
+  opacity: 0.8;
+  transform: translateY(-1px);
 }
 

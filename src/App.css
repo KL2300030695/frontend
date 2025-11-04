@@ -3,10 +3,13 @@
   height: 100%;
 }
 #Header{
-  background: white;
+  background: var(--color-surface, white);
   width: 100%;
   height: 65px;
-
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.06));
 }
 #Content{
   background-color: rgb(136, 189, 199); 
@@ -21,80 +24,53 @@
 #Header .logo{
   width: 40px;
   position: relative;
-  top: 10px;
-  float: left;
+  top: 0;
+  float: none;
   margin-left: 12px;
 }
 #Header .logotext{
   position: relative;
-  top: 17px;
-  margin-left: 15px;
+  top: 0;
+  margin-left: 8px;
   font-size: 20pt;
   font-weight: bold;
-  float: left;
+  float: none;
+  color: var(--color-text, #1f2937);
 }
-#Header .signintext{
-  position: relative;
-  top: 20px;
-  margin-right: 30px;
-  padding-left: 2px;
-  font-size: 12pt;
-  font-weight: bold;
-  float: right;
-  cursor: pointer;
-}
-#Header .Registertext{
-  position: relative;
-  top: 20px;
-  margin-right: 8px;
-  padding-left: 4px;
-  font-size: 12pt;
-  font-weight: bold;
-  float: right;
-  cursor: pointer;
-}
-#Header .Abouttext{
-  position: relative;
-  top: 20px;
-  margin-right: 8px;
-  padding-left: 4px;
-  font-size: 12pt;
-  font-weight: bold;
-  float: right;
-  cursor: pointer;
-}
-#Header .Servicestext{
-  position: relative;
-  top: 20px;
-  margin-right: 8px;
-  padding-left: 4px;
-  font-size: 12pt;
-  font-weight: bold;
-  float: right;
-  cursor: pointer;
-}
+#Header .signintext,
+#Header .Registertext,
+#Header .Abouttext,
+#Header .Servicestext,
 #Header .Hometext{
   position: relative;
-  top: 20px;
+  top: 0;
   margin-right: 8px;
   padding-left: 4px;
   font-size: 12pt;
   font-weight: bold;
-  float: right;
+  float: none;
   cursor: pointer;
-
+  color: var(--color-text, #1f2937);
+}
+#Header .signintext:hover,
+#Header .Registertext:hover,
+#Header .Abouttext:hover,
+#Header .Servicestext:hover,
+#Header .Hometext:hover{
+  color: var(--color-primary, #2563eb);
 }
 #Header .searchbar {
   position: relative;
-  top: 8px;
- margin-left: 500px;
+  top: 0;
+  margin-left: auto;
   display: flex;
   align-items: center;
   background: rgb(179, 222, 179);
-  width: 450px;
+  width: clamp(220px, 35vw, 450px);
   height: 40px;
-  padding: 5px;
+  padding: 5px 8px;
   border-radius: 15px;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.06));
 }
 
 .searchbar .searchdoctext {
@@ -121,12 +97,16 @@
   width: 24px;
   height: 24px;
   position: relative;
-  margin-left: 1040px;
+  margin-left: 8px;
   display: flex;
-  top: -33px;
+  top: 0;
+  filter: saturate(0.1) brightness(0.6);
+}
+#Header .bellicon:hover{
+  filter: none;
 }
 #Content .home {
-  width: 60%;  
+  width: min(60%, 900px);  
   height: 100%; 
   object-fit: cover;
   display: block;
@@ -146,17 +126,20 @@
   margin-left: 930px;
 }
 
+/* Auth popup */
 #popup{
   width: 100%;
   height: 100%;
   display: none;
   position: fixed;
   z-index: 999;
+  inset: 0;
   backdrop-filter: blur(5px);
+  background: rgba(0,0,0,0.25);
 }
 #popupwindow{
-  width: 300px;
-  height: 380px;
+  width: min(90vw, 360px);
+  min-height: 380px;
   background-color: azure;
   top: 50%;
   left: 50%;
@@ -166,11 +149,17 @@
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  box-shadow: var(--shadow-md, 0 10px 25px rgba(0,0,0,0.12));
+  animation: authPop 220ms ease-out;
+}
+@keyframes authPop{
+  0%{ transform: translate(-50%, -48%) scale(0.98); opacity: 0; }
+  100%{ transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 #popupheader{
   width: 100%;
   height: 65px;
-  background: rgb(34, 143, 153);
+  background: linear-gradient(135deg, rgb(34, 143, 153), rgb(20, 110, 118));
   text-align: center;
   line-height: 60px;
   font-size: 12pt;
@@ -180,65 +169,77 @@
   border-top-right-radius: 10px; 
 }
 #signin{
-  width: calc(100% - 10px);
+  width: calc(100% - 20px);
   height: calc(100% - 60px);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   display :none;
 }
 #signin .usernamelabel{
   display: block;
-  padding: 20px 0px 3px 0px;
+  padding: 14px 0px 6px 0px;
 }
-input{
-  width: 90%;
-  height: 20px;
+#signin input{
+  width: 100%;
+  height: 36px;
   border: 1px solid rgb(6, 87, 87);
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 0 10px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+#signin input:focus{
+  border-color: var(--color-accent, #0ea5e9);
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.25);
+  outline: none;
 }
 #signin .passwordlabel{
   display: block;
-  padding: 10px 0px 3px 0px;
+  padding: 10px 0px 6px 0px;
 }
 #signin .forgetpassword{
   font-size: 12pt;
   font-weight: bold;
   text-align: right;
-  padding: 15px 0px 3px 0px;
+  padding: 12px 0px 3px 0px;
   color: rgb(16, 82, 76);
 }
 #signin .forgetpassword label{
   color: rgb(8, 108, 108);
   cursor: pointer;
-
 }
 #signin .forgetpassword label:hover{
   color:black
 }
 #signin .signinbutton{
   width: 100%;
-  height: 40px;
-  background: rgb(13, 120,130);
+  height: 44px;
+  background: linear-gradient(135deg, rgb(13, 120,130), rgb(9, 96, 104));
   color: white;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-weight: bold;
-  margin-top: 10px;
-
+  margin-top: 12px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 #signin .signinbutton:hover{
-  color: black;
+  color: white;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+#signin .signinbutton:active{
+  transform: translateY(0);
 }
 #signin .div1{
   width: 100%;
-  height: 40px;
+  height: 20px;
 }
 #signin .div2{
   width: 100%;
-  font-size: 17pt;
+  font-size: 14pt;
   text-align: center;
+  margin-top: 8px;
 }
 #signin .div2 label{
   color: rgb(13, 120,130);
@@ -248,37 +249,55 @@ input{
   color: rgb(3, 110, 58);
 }
 #signup{
-  width: calc(100% - 10);
+  width: calc(100% - 20px);
   height: calc(100% - 60px);
-  padding: 5px;
+  padding: 10px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   display: none;
 }
 #signup .label{
   display: block;
-  padding: 10px 0px 3px 0px;
+  padding: 10px 0px 6px 0px;
   border-radius: 5px;
 }
-#signup select{
-  width: 92%;
-  height: 30px;
-  border: 1px solid red;
-  border-radius: 5px;
+#signup select,
+#signup input,
+#signup textarea{
+  width: 100%;
+  height: 36px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 10px;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
+#signup textarea{ height: 80px; padding: 8px 10px; resize: vertical; }
+#signup select{ height: 36px; }
+#signup input:focus,
+#signup select:focus,
+#signup textarea:focus{
+  border-color: var(--color-accent, #0ea5e9);
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.25);
+  outline: none;
+}
+#signup .hint{ color: var(--color-muted, #6b7280); font-size: 11pt; }
+#signup .error{ color: #b91c1c; font-size: 11pt; }
 #signup button{
   width: 100%;
-  height: 30px;
+  height: 42px;
   border: none;
   background-color: rgb(13, 120, 130);
   color: white;
   font-size: 12pt;
   cursor: pointer;
-  margin-top: 10px;
-  border-radius: 10px;
+  margin-top: 12px;
+  border-radius: 8px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 #signup button:hover{
-  color: black;
+  color: white;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
 }
 
 #signup div{
@@ -418,6 +437,7 @@ input{
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  #Header{ gap: 6px; }
   .footer-container {
     flex-direction: column;
     text-align: center;

@@ -1,4 +1,6 @@
-export const BASEURL="http://localhost:8057/";
+// Read base URL from runtime config injected by Nginx entrypoint; fallback to localhost
+const runtimeConfig = typeof window !== 'undefined' && window.__APP_CONFIG__ ? window.__APP_CONFIG__ : {};
+export const BASEURL = runtimeConfig.BASEURL || "http://localhost:8057/";
 export function Apicall(reqmethod, url, data, responseHandler) 
 { 
     var option; 
